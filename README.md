@@ -20,6 +20,16 @@ Set up GitHub account:
 Create SSH key and add to your github account:
  - http://help.github.com/articles/generating-ssh-keys
 
+Download Playground codebase
+ - Fork Playground Repo (www.github.com/vortel64/playground) -> Fork (upper right corner)
+ - Clone your fork into www/wamp/playground
+
+Import localhost.sql into your WAMP MySQL
+ - http://localhost/phpmyadmin
+ - Top Menu -> Import
+ - Choose File -> locate localhost.sql in your www/wamp/playground folder
+ - Go
+
 Documentation:
  - Codeigniter (www.ellislab.com/codeigniter/user-guide)
  - jQuery (http://api.jquery.com)

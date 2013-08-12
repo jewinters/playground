@@ -18,15 +18,15 @@ Set up GitHub account:
  - www.github.com
 
 Create SSH key and add to your github account:
- - help.github.com/articles/generating-ssh-keys
+ - http://help.github.com/articles/generating-ssh-keys
 
 Documentation:
  - Codeigniter (www.ellislab.com/codeigniter/user-guide)
- - jQuery (www.api.jquery.com)
+ - jQuery (http://api.jquery.com)
  - Bootstrap 3 (www.getbootstrap.com)
  - PHP (www.php.net)
  - phpActiveRecord (www.phpactiverecord.org)
- - MySQL (www.dev.mysql.com/doc)
- - Git (www.help.github.com)
+ - MySQL (http://dev.mysql.com/doc)
+ - Git (http://help.github.com)
 
 

@@ -20,15 +20,30 @@ Set up GitHub account:
 Create SSH key and add to your github account:
  - http://help.github.com/articles/generating-ssh-keys
 
-Download Playground codebase
+Download Playground codebase:
  - Fork Playground Repo (www.github.com/vortel64/playground) -> Fork (upper right corner)
- - Clone your fork into www/wamp/playground
+ - Clone your fork into your /www/wamp/playground
 
-Import localhost.sql into your WAMP MySQL
+Import localhost.sql into your WAMP MySQL:
+ - Make sure WAMP is running
  - http://localhost/phpmyadmin
  - Top Menu -> Import
- - Choose File -> locate localhost.sql in your www/wamp/playground folder
+ - Choose File -> locate localhost.sql in your /www/wamp/playground folder
  - Go
+
+WAMP Settings:
+ - Enable short open tags (WAMP -> PHP -> PHP Settings -> short open tag)
+ - Enable rewrite mod (WAMP -> Apache -> Apache Modules -> rewrite_module)
+
+Begin playing around:
+ - Make sure WAMP is running
+ - Access website by navigating to (http://localhost/playground)
+
+Example exercises:
+ - Add functionality to be able to Edit widgets when you click "Edit" on the Widgets table page
+ - Add functionality to be able to Delete widgets when you click "Delete" on the Widgets table page
+ - Add functionality to be able to Add widgets
+ - Create a "Featured Widget" section on the main index that displays a random Widget whenever the page loads
 
 Documentation:
  - Codeigniter (www.ellislab.com/codeigniter/user-guide)

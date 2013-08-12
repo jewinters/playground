@@ -1,0 +1,9 @@
+/* Playground CSS File */
+
+#widget-table {
+	width:840px;
+}
+
+td.align-right, th.align-right {
+	text-align:right;
+}

@@ -39,12 +39,6 @@ Begin playing around:
  - Make sure WAMP is running
  - Access website by navigating to (http://localhost/playground)
 
-Example exercises:
- - Add functionality to be able to Edit widgets when you click "Edit" on the Widgets table page
- - Add functionality to be able to Delete widgets when you click "Delete" on the Widgets table page
- - Add functionality to be able to Add widgets
- - Create a "Featured Widget" section on the main index that displays a random Widget whenever the page loads
-
 Documentation:
  - Codeigniter (www.ellislab.com/codeigniter/user-guide)
  - jQuery (http://api.jquery.com)

@@ -65,6 +65,28 @@ INSERT INTO `core_stats` VALUES ('Charisma','CHA'),('Constitution','CON'),('Dext
 UNLOCK TABLES;
 
 --
+-- Table structure for table `damage_types`
+--
+
+DROP TABLE IF EXISTS `damage_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `damage_types` (
+  `name` char(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `damage_types`
+--
+
+LOCK TABLES `damage_types` WRITE;
+/*!40000 ALTER TABLE `damage_types` DISABLE KEYS */;
+INSERT INTO `damage_types` VALUES ('Slashing'),('Piercing'),('Bludgeoning'),('Fire'),('Acid'),('Cold'),('Force'),('Lightning'),('Necrotic'),('Poison'),('Psychic'),('Radiant'),('Thunder');
+/*!40000 ALTER TABLE `damage_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `expansions`
 --
 
@@ -174,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-07 11:43:02
+-- Dump completed on 2014-09-07 12:03:36

@@ -10,6 +10,7 @@
 	<div class="col-lg-11 col-lg-offset-1">
 		<ul>
 			<li><a href="<?= base_url('edit'); ?>">View/Edit Widgets</a></li>
+			<li><a href="<?= base_url('character_sheet'); ?>">Character Sheet</a></li>
 		</ul>
 	</div>
 </div>

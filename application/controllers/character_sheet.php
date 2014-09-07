@@ -16,6 +16,7 @@ class character_sheet extends CI_Controller {
 		$data['classes']    = Classes::all();
 		$data['core_stats'] = CoreStats::all();
 		$data['skills']     = Skills::all();
+		$data['races']      = Races::all();
 
 		$this->load->view('pages/character_sheet/index',$data);
 	}

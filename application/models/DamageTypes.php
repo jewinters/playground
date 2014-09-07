@@ -1,5 +1,5 @@
 <?php
-  class Races extends ActiveRecord\Model {
+  class DamageTypes extends ActiveRecord\Model {
     
     static $belongs_to = array(
       

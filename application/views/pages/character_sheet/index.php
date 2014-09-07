@@ -137,7 +137,12 @@
 					Attack Bonus: <input name="primary_attack_bonus"/>
 				</div>
 				<div id="primary_attack_damage_type">
-					Damage Type: <input name="primary_attack_damage_type"/>
+					Damage/Type: <input name="primary_attack_damage"/>
+					<select id="primary_attack_type">
+					<? foreach( $damage_types as $damage_type ) { ?>
+						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
+					<? } ?>
+					</select>
 				</div>
 			</div>
 			<div id="secondary_attack">
@@ -149,7 +154,12 @@
 					Attack Bonus: <input name="secondary_attack_bonus"/>
 				</div>
 				<div id="secondary_attack_damage_type">
-					Damage Type: <input name="secondary_attack_damage_type"/>
+					Damage/Type: <input name="secondary_attack_damage"/>
+					<select id="secondary_attack_type">
+					<? foreach( $damage_types as $damage_type ) { ?>
+						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
+					<? } ?>
+					</select>
 				</div>
 			</div>
 			<div id="tertiary_attack">
@@ -161,7 +171,12 @@
 					Attack Bonus: <input name="tertiary_attack_bonus"/>
 				</div>
 				<div id="tertiary_attack_damage_type">
-					Damage Type: <input name="tertiary_attack_damage_type"/>
+					Damage/Type: <input name="tertiary_attack_damage"/>
+					<select id="tertiary_attack_type">
+					<? foreach( $damage_types as $damage_type ) { ?>
+						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
+					<? } ?>
+					</select>
 				</div>
 			</div>
 		</div>

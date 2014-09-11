@@ -1,197 +1,219 @@
 <? $this->load->view('layout/header'); ?>
 <div id="sheet">
-	<div id="header">
-		<div id="name">
-			Name: <input name="character_name"/>
+	<div id="header" class="col-12">
+		<div id="name" class="panel col-4">
+			Name <input name="character_name"/>
 		</div>
-		<div id="details">
-			Class & Level:
-			<select id="classes">
-			<? foreach($classes as $class) { ?>
-				<option value="<?= $class->name; ?>"><?= $class->name; ?></option>
-			<? } ?>
-			</select>
-			<select id="level">
-			<? foreach( range(1,20) as $level ) { ?>
-				<option value="<?= $level; ?>"><?= $level; ?></option>
-			<? } ?>
-			</select>
-			Background: <input name="background"/>
-			Player Name: <input name="player_name"/>
-			Race: 
-			<select id="races">
-			<? foreach($races as $race) { ?>
-				<option value="<?= $race->name; ?>"><?= $race->name; ?></option>
-			<? } ?>
-			Alignment:
-			<select id="alignments">
-				<option value="LG">Lawful Good</option>
-				<option value="LN">Lawful</option>
-				<option value="LE">Lawful Evil</option>
-				<option value="NG">Good</option>
-				<option value="NN">True Neutral</option>
-				<option value="NE">Evil</option>
-				<option value="CG">Chaotic Good</option>
-				<option value="CN">Chaotic</option>
-				<option value="CE">Chaotic Evil</option>
-			</select>
-			Experience Points: <input name="experience_points"/>
-		</div>
-		<div id="stats">
-			Base Stats:
-			<? foreach($core_stats as $stat) { ?>
-			<div id="stat_<?= $stat->code; ?>">
-				<?= $stat->name ?>:
-				<select id="stat_<?= $stat->code; ?>_value">
-				<? foreach( range(1, 30) as $value ) { ?>
-					<option value='<?= $value; ?>'<?php echo $value==10 ? ' selected=\'selected\'' : ''; ?>>
-						<?= $value; ?>
-					</option>
+		<div id="details" class="panel col-8">
+			<div id="class_panel" class="col-4">
+				<div class="col-2">Class</div>
+				<select class="col-6" id="classes">
+				<? foreach($classes as $class) { ?>
+					<option value="<?= $class->name; ?>"><?= $class->name; ?></option>
 				<? } ?>
 				</select>
-			<? } ?>
+				<div class="col-2 center">Level</div>
+				<input class="col-2 level" type="number" name="quantity" min="1" max="20" value="1"/>
+			</div>
+			<div class="col-4">Background <input name="background"/></div>
+			<div class="col-4">Player Name <input name="player_name"/></div>
+			<div class="col-4">Race 
+				<select id="races">
+				<? foreach($races as $race) { ?>
+					<option value="<?= $race->name; ?>"><?= $race->name; ?></option>
+				<? } ?>
+				</select>
+			</div>
+			<div class="col-4">Alignment
+				<select id="alignments">
+					<option value="LG">Lawful Good</option>
+					<option value="LN">Lawful</option>
+					<option value="LE">Lawful Evil</option>
+					<option value="NG">Good</option>
+					<option value="NN">True Neutral</option>
+					<option value="NE">Evil</option>
+					<option value="CG">Chaotic Good</option>
+					<option value="CN">Chaotic</option>
+					<option value="CE">Chaotic Evil</option>
+				</select>
+			</div>
+			<div class="col-4">Experience Points <input type="number" value="0" class="experience" name="experience_points"/></div>
 		</div>
-		<div id="inspiration">
-			Inspiration: <input type='checkbox' name="inspiration"/>
-		</div>
-		<div id="proficiency_bonus">
-			Proficiency Bonus: <input name="proficiency_bonus"/>
-		</div>
-		<div id="saving_throws">
-			Saving Throws:
-			<? foreach($core_stats as $stat) { ?>
-			<div id="stat_<?= $stat->code; ?>">
-				<?= $stat->name ?>: <input type="checkbox" id="save_<?= $stat->code; ?>_proficiency"/><input id="save_<?= $stat->code; ?>_value"/>
-			</div>
-			<? } ?>
-		</div>
-		<div id="skills">
-			Skills:
-			<? foreach($skills as $skill) { ?>
-			<div id="skill_<?= $skill->name; ?>">
-				<?= $skill->name ?> (<?= $skill->stat ?>): <input type="checkbox" id="skill_<?= $skill->name; ?>_proficiency"/><input id="skill_<?= $skill->name; ?>_value"/>
-			</div>
-			<? } ?>
-		</div>
-		<div id="working_stats">
-			<div id="armor_class">
-				Armor Class: <input name="armor_class"/>
-			</div>
-			<div id="initiative">
-				Initiative: <input name="initiative"/>
-			</div>
-			<div id="speed">
-				Speed: <input name="speed"/>
-			</div>
-			<div id="current_hitpoints">
-				Current Hitpoints: <input name="current_hitpoints"/>
-			</div>
-			<div id="temporary_hitpoints">
-				Temporary Hitpoints: <input name="temporary_hitpoints"/>
-			</div>
-			<div id="hit_dice">
-				Hit Dice:
-				<div id="hit_dice_total">
-					Total: <input name="hit_dice_total"/>
+	</div>
+	<div class="col-12">
+		<div class="col-4"> <!--Left Column-->
+			<div id="stats" class="panel col-4">
+				<div id="base_stats" class="h4 center">Base Stats</div>
+				<? foreach($core_stats as $stat) { ?>
+				<div id="stat_<?= $stat->code; ?>">
+					<div class="center"><?= $stat->name ?></div>
+					<div class="center"><input type="number" class="center" id="stat_<?= $stat->code; ?>_value" name="quantity" min="1" max="30" value="10"/></div>
+					<div class="center"><label>MOD</label></div>
 				</div>
-				<div id="hit_dice_current">
-					<input name="hit_dice"/>
+				<? } ?>
+			</div>
+			<div class="col-8">
+				<div id="inspiration" class="panel col-12">
+					<div class="col-5">Inspiration</div>
+					<input type="checkbox" name="inspiration"/>
+				</div>
+				<div id="proficiency_bonus" class="panel col-12">
+					<div class="col-9 center">Proficiency Bonus</div>
+					<input name="proficiency_bonus" type="number" min="2" max="6" value="2"/>
+				</div>
+				<div id="saving_throws" class="panel col-12">
+					<div class="center h5">Saving Throws</div>
+					<? foreach($core_stats as $stat) { ?>
+					<div id="stat_<?= $stat->code; ?>">
+						<div class="col-6 input-ti"><?= $stat->name ?></div>
+						<input type="checkbox" id="save_<?= $stat->code; ?>_proficiency"/>
+						<input id="save_<?= $stat->code; ?>_value" type="number" value="0" class="input-sm"/>
+					</div>
+					<? } ?>
+				</div>
+				<div id="skills" class="panel col-12">
+					<div class="center h5">Skills</div>
+					<? foreach($skills as $skill) { ?>
+					<div id="skill_<?= $skill->name; ?>">
+						<div class="col-6 input-ti"><?= $skill->name ?> (<?= $skill->stat ?>)</div>
+						<input type="checkbox" id="skill_<?= $skill->name; ?>_proficiency"/>
+						<input id="skill_<?= $skill->name; ?>_value" type="number" value="0" class="input-sm"/>
+					</div>
+					<? } ?>
 				</div>
 			</div>
-			<div id="death_saves">
-				Death Saves:
-				<div id="death_save_successes">
-					Successes: <input name="death_save_successes"/>
-				</div>
-				<div id="death_save_failures">
-					Failures: <input name="death_save_failures"/>
-				</div>
+			<div id="passive_perception" class="panel col-12">
+				<div class="col-8">Passive Wisdom (Perception)</div><input name="passive_perception" type="number" value="0"/>
+			</div>
+			<div id="other_proficiencies_languages" class="panel col-12">
+				Other Proficiencies & Languages <textarea name="other_proficiencies_languages"/></textarea>
 			</div>
 		</div>
-		<div id="personality_traits">
-			Personality Traits: <input name="personality_traits"/>
-		</div>
-		<div id="ideals">
-			Ideals: <input name="ideals"/>
-		</div>
-		<div id="bonds">
-			Bonds: <input name="bonds"/>
-		</div>
-		<div id="flaws">
-			Flaws: <input name="flaws"/>
-		</div>
-		<div id="passive_perception">
-			Passive Perception: <input name="passive_perception"/>
-		</div>
-		<div id="other_proficiencies_languages">
-			Other Proficiencies & Languages: <input name="other_proficiencies_languages"/>
-		</div>
-		<div id="attacks">
-			Attacks:
-			<div id="primary_attack">
-				Primary:
-				<div id="primary_attack_name">
-					Name: <input name="primary_attack_name"/>
+		<div class="col-4"> <!--Middle Column-->
+			<div id="common_stats" class="col-12">
+				<div id="working_stats">
+					<div class="col-12">
+						<div id="armor_class" class="panel col-4">
+							<div class="center">Armor Class</div><div class="center"><input type="number" value="10" name="armor_class"/></div>
+						</div>
+						<div id="initiative" class="panel col-4">
+							<div class="center">Initiative</div><div class="center"><input type="number" value="0" name="initiative"/></div>
+						</div>
+						<div id="speed" class="panel col-4">
+							<div class="center">Speed</div><div class="center"><input type="number" value="30" name="speed"/></div>
+						</div>
+					</div>
+					<div id="current_hitpoints" class="panel col-12">
+						<div class="center">Current Hitpoints</div><textarea type="number" name="current_hitpoints"></textarea>
+					</div>
+					<div id="temporary_hitpoints" class="panel col-12">
+						<div class="center">Temporary Hitpoints</div><textarea type="number" name="temporary_hitpoints"></textarea>
+					</div>
+					<div id="hit_dice" class="panel col-6">
+						<div class="center">Hit Dice</div>
+						<div id="hit_dice_total">
+							<div class="col-7 center">Total</div>
+							<input type="number" value="1" min="0" name="hit_dice_total"/>
+						</div>
+						<div id="hit_dice_current">
+							<input class="center" name="hit_dice"/>
+						</div>
+					</div>
+					<div id="death_saves" class="panel col-6">
+						<div class="center">Death Saves</div>
+						<div id="death_save_successes">
+							<div class="col-8">Successes</div>
+							<div class="col-4">
+								<input type="checkbox" class="col-4" id="death_save_success_1"/>
+								<input type="checkbox" class="col-4" id="death_save_success_2"/>
+								<input type="checkbox" class="col-4" id="death_save_success_3"/>
+							</div>
+						</div>
+						<div id="death_save_failures">
+							<div class="col-8">Failures</div>
+							<div class="col-4">
+								<input type="checkbox" class="col-4" id="death_save_failure_1"/>
+								<input type="checkbox" class="col-4" id="death_save_failure_2"/>
+								<input type="checkbox" class="col-4" id="death_save_failure_3"/>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div id="primary_attack_bonus">
-					Attack Bonus: <input name="primary_attack_bonus"/>
+			</div>
+			<div id="attacks" class="panel col-12">
+				<div class="center">Attacks</div>
+				<div id="attack_header" class="col-12">
+					<div class="col-4 center">Name</div>
+					<div class="col-2 center">Atk Bonus</div>
+					<div class="col-2 center">Damage</div>
+					<div class="col-4 center">Type</div>
 				</div>
-				<div id="primary_attack_damage_type">
-					Damage/Type: <input name="primary_attack_damage"/>
-					<select id="primary_attack_type">
+				<div id="primary_attack" class="col-12">
+					<input class="col-4" name="primary_attack_name"/>
+					<div class="center col-2">
+						<input type="number" name="primary_attack_bonus"/>
+					</div>
+					<input class="col-2" name="primary_attack_damage"/>
+					<select class="col-4" id="primary_attack_type">
+					<? foreach( $damage_types as $damage_type ) { ?>
+						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
+					<? } ?>
+					</select>
+				</div>
+				<div id="secondary_attack" class="col-12">
+					<input class="col-4" name="secondary_attack_name"/>
+					<div class="center col-2">
+						<input type="number" name="secondary_attack_bonus"/>
+					</div>
+					<input class="col-2" name="secondary_attack_damage"/>
+					<select class="col-4" id="secondary_attack_type">
+					<? foreach( $damage_types as $damage_type ) { ?>
+						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
+					<? } ?>
+					</select>
+				</div>
+				<div id="tertiary_attack" class="col-12">
+					<input class="col-4" name="tertiary_attack_name"/>
+					<div class="center col-2">
+						<input type="number" name="tertiary_attack_bonus"/>
+					</div>
+					<input class="col-2" name="tertiary_attack_damage"/>
+					<select class="col-4" id="tertiary_attack_type">
 					<? foreach( $damage_types as $damage_type ) { ?>
 						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
 					<? } ?>
 					</select>
 				</div>
 			</div>
-			<div id="secondary_attack">
-				Secondary:
-				<div id="secondary_attack_name">
-					Name: <input name="secondary_attack_name"/>
-				</div>
-				<div id="secondary_attack_bonus">
-					Attack Bonus: <input name="secondary_attack_bonus"/>
-				</div>
-				<div id="secondary_attack_damage_type">
-					Damage/Type: <input name="secondary_attack_damage"/>
-					<select id="secondary_attack_type">
-					<? foreach( $damage_types as $damage_type ) { ?>
-						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
-					<? } ?>
-					</select>
-				</div>
+			<div id="equipment" class="panel col-12">
+				Equipment <textarea name="equipment"/></textarea>
 			</div>
-			<div id="tertiary_attack">
-				Tertiary:
-				<div id="tertiary_attack_name">
-					Name: <input name="tertiary_attack_name"/>
-				</div>
-				<div id="tertiary_attack_bonus">
-					Attack Bonus: <input name="tertiary_attack_bonus"/>
-				</div>
-				<div id="tertiary_attack_damage_type">
-					Damage/Type: <input name="tertiary_attack_damage"/>
-					<select id="tertiary_attack_type">
-					<? foreach( $damage_types as $damage_type ) { ?>
-						<option name='<?= $damage_type->name ?>'><?= $damage_type->name ?></option>
-					<? } ?>
-					</select>
-				</div>
+			<div id="money" class="panel col-12">
+				CP <input type="number" name="money_copper" value="0"/>
+				SP <input type="number" name="money_silver" value="0"/>
+				EP <input type="number" name="money_electrum" value="0"/>
+				GP <input type="number" name="money_gold" value="0"/>
+				PP <input type="number" name="money_platinum" value="0"/>
 			</div>
 		</div>
-		<div id="equipment">
-			Equipment: <input name="equipment"/>
-		</div>
-		<div id="money">
-			CP: <input name="money_copper"/>
-			SP: <input name="money_silver"/>
-			EP: <input name="money_electrum"/>
-			GP: <input name="money_gold"/>
-			PP: <input name="money_platinum"/>
-		</div>
-		<div id="features_traits">
-			Features & Traits: <input name="features_traits"/>
+		<div class="col-4"> <!--Right Column-->
+			<div id="personality" class="panel col-12">
+				<div id="personality_traits">
+					Personality Traits <textarea name="personality_traits"></textarea>
+				</div>
+				<div id="ideals">
+					Ideals <textarea name="ideals"/></textarea>
+				</div>
+				<div id="bonds">
+					Bonds <textarea name="bonds"/></textarea>
+				</div>
+				<div id="flaws">
+					Flaws <textarea name="flaws"/></textarea>
+				</div>
+			</div>
+			<div id="features_traits" class="panel col-12">
+				Features & Traits <textarea name="features_traits"/></textarea>
+			</div>
 		</div>
 	</div>
 </div>

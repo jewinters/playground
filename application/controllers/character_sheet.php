@@ -22,4 +22,26 @@ class character_sheet extends CI_Controller {
 		$this->load->view('pages/character_sheet/index',$data);
 	}
 
+	public function spells() {
+		$data['classes'] = Classes::all();
+
+		$this->load->view('pages/character_sheet/spells', $data);
+	}
+
+	public function get_spell_list() {
+		if ($_GET['class']):
+            $class = $_GET['class'];
+        	$data['spell_list'] = ClassSpells::find('all', array('conditions'=>array('class_name=?',$class), 'select' => 'spell_name'));
+            #echo($data['spell_list']);
+            $return = "<select id=\"spell_list\">";
+            foreach($data['spell_list'] as $spell) {
+            	$return .= "\n<option value=\"" . $spell->spell_name ."\">". $spell->spell_name . "</option>";
+            }
+            $return .= "</select>";
+            echo($return);
+        endif;
+	}
+
 }
+
+?>
